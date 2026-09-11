@@ -1,0 +1,723 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #3b0018;
+    color: #fff;
+}
+
+/* =========================
+   PIN
+========================= */
+
+.page {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(circle at top, #6d1235, #26000f 70%);
+
+    z-index: 1000;
+}
+
+.login-box {
+    width: min(90%, 380px);
+    padding: 40px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 180, 200, 0.25);
+    border-radius: 25px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+    animation: muncul 1s ease;
+}
+
+.lock {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.login-box h1 {
+    color: #ff9fba;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.login-box p {
+    color: #f5dce4;
+    margin-bottom: 22px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 16px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 15px;
+
+    background: #fff;
+    color: #4a1025;
+
+    font-size: 18px;
+    text-align: center;
+
+    margin-bottom: 15px;
+}
+
+button {
+    border: none;
+    outline: none;
+
+    padding: 14px 28px;
+
+    border-radius: 30px;
+
+    background: #ed4678;
+    color: white;
+
+    font-size: 16px;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(237, 70, 120, 0.35);
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #ff5c8d;
+}
+
+.error {
+    color: #ff9aaa !important;
+    min-height: 20px;
+    margin-top: 10px;
+}
+
+/* =========================
+   HALAMAN ULANG TAHUN
+========================= */
+
+.birthday-page {
+    display: none;
+
+    width: 100%;
+    height: 100vh;
+
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at top, #650d30, #300014 75%);
+}
+
+/* setiap section menjadi SATU SLIDE */
+
+.birthday-section {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    padding: 35px 20px 90px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateX(100%);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        visibility 0.7s;
+}
+
+.birthday-section.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.birthday-section.previous {
+    transform: translateX(-100%);
+}
+
+.small-text {
+    color: #efa0b5;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.birthday-section h1 {
+    color: #ff7fa3;
+    font-size: clamp(35px, 8vw, 65px);
+    margin-bottom: 20px;
+}
+
+.birthday-section h2 {
+    color: #ffc0d0;
+    font-size: clamp(32px, 7vw, 58px);
+    margin-bottom: 20px;
+}
+
+.intro {
+    width: min(90%, 600px);
+
+    color: #f0d6de;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+    font-size: 17px;
+}
+
+/* =========================
+   KUE
+========================= */
+
+.big-cake {
+    font-size: 120px;
+    margin: 20px 0 30px;
+
+    animation: melayang 2s infinite ease-in-out;
+}
+
+.wish-text {
+    min-height: 30px;
+    color: #ffb1c5;
+    margin: 20px 0;
+}
+
+/* =========================
+   SURAT
+========================= */
+
+.letter {
+    width: min(90%, 650px);
+    max-height: 65vh;
+
+    overflow-y: auto;
+
+    background: #fff8f1;
+    color: #51323b;
+
+    padding: 35px 30px;
+
+    border-radius: 8px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+    text-align: left;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+
+    transform: rotate(-1deg);
+}
+
+.letter h2 {
+    color: #a74b65;
+    text-align: center;
+    font-size: 32px;
+}
+
+.letter p {
+    margin-bottom: 15px;
+}
+
+.signature {
+    text-align: right;
+    color: #b04b67;
+    font-style: italic;
+}
+
+/* =========================
+   FOTO
+========================= */
+
+.memory-grid {
+    width: 100%;
+
+    display: flex;
+
+    gap: 15px;
+
+    justify-content: center;
+    align-items: center;
+
+    margin: 15px 0 25px;
+}
+
+.photo-card {
+    width: min(29vw, 220px);
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 180, 200, 0.2);
+
+    border-radius: 18px;
+
+    padding: 10px;
+
+    transition: 0.3s;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 270px;
+
+    object-fit: contain;
+
+    background: #22000d;
+
+    border-radius: 12px;
+
+    display: block;
+}
+
+.photo-card p {
+    color: #f5c8d3;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.photo-card:hover {
+    transform: translateY(-8px);
+}
+
+/* =========================
+   ALASAN
+========================= */
+
+.reasons {
+    width: min(90%, 600px);
+    margin: 10px 0 20px;
+}
+
+.reason {
+    padding: 16px 20px;
+
+    margin: 12px 0;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-left: 3px solid #e45c7d;
+
+    border-radius: 12px;
+
+    color: #f3dce2;
+
+    text-align: left;
+
+    transition: 0.3s;
+}
+
+.reason:hover {
+    transform: translateX(8px);
+}
+
+/* =========================
+   PENUTUP
+========================= */
+
+.final-heart {
+    font-size: 80px;
+
+    animation: detak 1.2s infinite;
+}
+
+.final-text {
+    width: min(90%, 600px);
+
+    color: #ead5db;
+
+    line-height: 1.9;
+
+    margin: 15px 0;
+}
+
+.final-cake {
+    font-size: 70px;
+    margin: 25px 0;
+}
+
+.final-section h3 {
+    color: #ff9eb8;
+    font-size: 25px;
+}
+
+/* =========================
+   MUSIK
+========================= */
+
+#musicButton {
+    position: fixed;
+
+    right: 18px;
+    bottom: 18px;
+
+    z-index: 2000;
+
+    padding: 12px 18px;
+
+    font-size: 14px;
+}
+
+/* =========================
+   ANIMASI
+========================= */
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes melayang {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes detak {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* =========================
+   HP
+========================= */
+
+@media (max-width: 600px) {
+
+    .birthday-section {
+        padding: 25px 15px 80px;
+    }
+
+    .birthday-section h2 {
+        font-size: 38px;
+    }
+
+    .birthday-section h1 {
+        font-size: 42px;
+    }
+
+    .intro {
+        font-size: 15px;
+    }
+
+    .memory-grid {
+        gap: 8px;
+    }
+
+    .photo-card {
+        width: 30vw;
+        padding: 5px;
+    }
+
+    .photo-card img {
+        height: 210px;
+    }
+
+    .photo-card p {
+        font-size: 11px;
+    }
+
+    .letter {
+        max-height: 60vh;
+        padding: 25px 20px;
+        font-size: 14px;
+    }
+}
+/* =========================
+   POP UP FOTO
+========================= */
+
+.photo-card {
+    cursor: pointer;
+}
+
+.photo-card img {
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.photo-card:hover img {
+    transform: scale(1.03);
+    filter: brightness(1.08);
+}
+
+.photo-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.88);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.photo-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.photo-modal img {
+    max-width: min(90vw, 900px);
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+    transform: scale(0.75);
+    transition: transform 0.3s ease;
+}
+
+.photo-modal.show img {
+    transform: scale(1);
+}
+
+.photo-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.photo-modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* =========================
+   PARTIKEL LEDAK
+========================= */
+
+.click-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    font-size: 18px;
+    transform: translate(-50%, -50%);
+    animation: particleExplosion 0.8s ease-out forwards;
+}
+
+@keyframes particleExplosion {
+    0% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            translate(0, 0)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            translate(var(--tx), var(--ty))
+            scale(0.2);
+    }
+}
+
+/* =========================================
+   EFEK SALJU ESTETIK - BIRTHDAY
+========================================= */
+
+.snow-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+/* Satu kepingan salju */
+.snowflake {
+    position: absolute;
+    top: -40px;
+    left: 0;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+
+    user-select: none;
+    pointer-events: none;
+
+    text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.7),
+        0 0 10px rgba(255, 255, 255, 0.35);
+
+    animation:
+        elegantSnowfall linear infinite;
+
+    will-change: transform;
+}
+
+/* Gerakan turun + sedikit efek angin */
+@keyframes elegantSnowfall {
+
+    0% {
+        transform:
+            translate3d(0, -40px, 0)
+            rotate(0deg);
+    }
+
+    25% {
+        transform:
+            translate3d(25px, 25vh, 0)
+            rotate(90deg);
+    }
+
+    50% {
+        transform:
+            translate3d(-20px, 50vh, 0)
+            rotate(180deg);
+    }
+
+    75% {
+        transform:
+            translate3d(30px, 75vh, 0)
+            rotate(270deg);
+    }
+
+    100% {
+        transform:
+            translate3d(-15px, 110vh, 0)
+            rotate(360deg);
+    }
+}
+
+/* Bokeh salju yang sangat lembut */
+.snow-glow {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        0 0 6px rgba(255, 255, 255, 0.8),
+        0 0 14px rgba(255, 255, 255, 0.35);
+
+    animation:
+        softSnowGlow linear infinite;
+
+    pointer-events: none;
+}
+
+@keyframes softSnowGlow {
+
+    0% {
+        transform:
+            translate3d(0, -20px, 0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.65;
+    }
+
+    50% {
+        transform:
+            translate3d(20px, 50vh, 0);
+        opacity: 0.45;
+    }
+
+    85% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform:
+            translate3d(-20px, 110vh, 0);
+        opacity: 0;
+    }
+}
+
+/* HP */
+@media (max-width: 600px) {
+
+    .snowflake {
+        text-shadow:
+            0 0 4px rgba(255, 255, 255, 0.6);
+    }
+
+    .snow-glow {
+        width: 4px;
+        height: 4px;
+    }
+}
