@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Adikku ❤️</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HALAMAN PIN
+    ========================== -->
+
+    <section id="loginPage" class="page">
+
+        <div class="login-box">
+
+            <div class="lock">🔐</div>
+
+            <h1>Untuk Adikku ❤️</h1>
+
+            <p>
+                Masukkan PIN untuk membuka
+                kejutan spesial di hari ulang tahunmu
+            </p>
+
+            <input
+                type="password"
+                id="pin"
+                placeholder="Masukkan PIN"
+                maxlength="10"
+            >
+
+            <button onclick="checkPin()">
+                Buka Kejutan 💖
+            </button>
+
+            <p id="error" class="error"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HALAMAN ULANG TAHUN
+    ========================== -->
+
+    <main id="birthdayPage" class="birthday-page">
+
+        <!-- MUSIK -->
+
+        <audio id="bgMusic" loop>
+            <source
+                src="music/music.mp3"
+                type="audio/mpeg">
+        </audio>
+
+        <button id="musicButton" onclick="toggleMusic()">
+            🎵 Musik
+        </button>
+
+
+        <!-- =========================
+             1. PEMBUKA
+        ========================== -->
+
+        <section class="birthday-section hero-section">
+
+            <p class="small-text">
+                HARI YANG SPESIAL
+            </p>
+
+            <h2>
+                Happy Birthday 🎂
+            </h2>
+
+            <h1>
+                Adikku ❤️
+            </h1>
+
+            <p class="intro">
+                Hari ini adalah hari spesial karena
+                adikku tercinta sedang bertambah usia.
+                Semoga hari ini dipenuhi kebahagiaan,
+                senyuman, dan hal-hal indah.
+            </p>
+
+            <button onclick="nextSection('cakeSection')">
+                Lanjutkan ❤️
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             2. KUE
+        ========================== -->
+
+        <section
+            id="cakeSection"
+            class="birthday-section">
+
+            <p class="small-text">
+                ADA SESUATU UNTUKMU
+            </p>
+
+            <h2>
+                Tiup Lilinnya 🎂
+            </h2>
+
+            <div class="big-cake">
+                🎂
+            </div>
+
+            <p>
+                Buat satu permintaan dulu ✨
+            </p>
+
+            <button onclick="blowCandle()">
+                Tiup Lilin 🕯️
+            </button>
+
+            <p id="wishText" class="wish-text">
+                Semoga semua harapan baikmu
+                menjadi kenyataan ✨
+            </p>
+
+            <button onclick="nextSection('letterSection')">
+                Baca Surat 💌
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             3. SURAT UNTUK ADIK
+        ========================== -->
+
+        <section
+            id="letterSection"
+            class="birthday-section">
+
+            <p class="small-text">
+                SEBUAH PESAN
+            </p>
+
+            <div class="letter">
+
+                <h2>
+                    Untuk Adikku 💌
+                </h2>
+
+                <p>
+                    Selamat ulang tahun untuk adikku
+                    tercinta. 🎂
+                </p>
+
+                <p>
+                    Semoga di usia yang baru ini,
+                    kamu semakin menjadi pribadi yang
+                    baik, kuat, dan percaya diri.
+                </p>
+
+                <p>
+                    Semoga kamu selalu diberikan
+                    kesehatan, kebahagiaan, dan
+                    kemudahan dalam mengejar
+                    semua cita-citamu.
+                </p>
+
+                <p>
+                    Jangan takut untuk bermimpi besar.
+                    Terus belajar, terus berusaha,
+                    dan jangan mudah menyerah.
+                </p>
+
+                <p>
+                    Sebagai kakak, aku akan selalu
+                    mendukungmu dan mendoakan yang
+                    terbaik untukmu.
+                </p>
+
+                <p>
+                    Semoga semakin banyak pengalaman
+                    dan kenangan indah yang bisa kamu
+                    dapatkan di tahun ini. ❤️
+                </p>
+
+                <p>
+                    Tetap jadi adik yang ceria,
+                    baik hati, dan jangan lupa
+                    untuk selalu tersenyum. 😊
+                </p>
+
+                <p class="signature">
+                    Dari Kakak ❤️
+                </p>
+
+            </div>
+
+            <button onclick="nextSection('memorySection')">
+                Lihat Kenangan 📸
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             4. KENANGAN
+        ========================== -->
+
+        <section
+            id="memorySection"
+            class="birthday-section">
+
+            <p class="small-text">
+                FOTO SPESIAL
+            </p>
+
+            <h2>
+                Foto Adikku Yang Cantik 📸
+            </h2>
+
+            <p class="intro">
+                Beberapa foto Adikku yang Cantik,
+                ceria, dan selalu membawa kebahagiaan. ❤️
+            </p>
+
+            <div class="memory-grid">
+
+                <div class="memory-card photo-card">
+
+                    <img
+                        src="foto/foto1.jpg"
+                        alt="Foto Adik 1">
+
+                    <p>
+                        Adikku Yang Cantik ❤️
+                    </p>
+
+                </div>
+
+
+                <div class="memory-card photo-card">
+
+                    <img
+                        src="foto/foto2.jpg"
+                        alt="Foto Adik 2">
+
+                    <p>
+                        Adikku yang ceria 💕
+                    </p>
+
+                </div>
+
+
+                <div class="memory-card photo-card">
+
+                    <img
+                        src="foto/foto3.jpg"
+                        alt="Foto Kenangan">
+
+                    <p>
+                        Adikku yang istimewa 💖
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button onclick="nextSection('reasonSection')">
+                Lanjut ❤️
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             5. ALASAN
+        ========================== -->
+
+        <section
+            id="reasonSection"
+            class="birthday-section">
+
+            <p class="small-text">
+                KENAPA KAMU SPESIAL
+            </p>
+
+            <h2>
+                Beberapa Alasan ❤️
+            </h2>
+
+            <div class="reasons">
+
+                <div class="reason">
+                    😊 Kamu selalu bisa membuat
+                    suasana rumah menjadi lebih
+                    menyenangkan.
+                </div>
+
+                <div class="reason">
+                    ❤️ Senyummu bisa membuat
+                    suasana menjadi lebih ceria.
+                </div>
+
+                <div class="reason">
+                    ⭐ Kamu adalah adik yang
+                    sangat berarti bagi keluarga.
+                </div>
+
+                <div class="reason">
+                    🌸 Semoga kamu selalu tumbuh
+                    menjadi pribadi yang baik.
+                </div>
+
+            </div>
+
+            <button onclick="nextSection('finalSection')">
+                Terakhir ✨
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             6. PENUTUP
+        ========================== -->
+
+        <section
+            id="finalSection"
+            class="birthday-section final-section">
+
+       <!-- =========================
+     ANIMASI BULAN ENDING
+========================= -->
+
+<div class="moon-scene">
+
+    <div class="moon-stars">
+        <span>✦</span>
+        <span>✧</span>
+        <span>·</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>⭐</span>
+        <span>·</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>·</span>
+        <span>✦</span>
+        <span>⭐</span>
+        <span>✧</span>
+        <span>·</span>
+        <span>✦</span>
+    </div>
+
+    <div class="moon-orbit">
+
+        <div class="realistic-moon">
+
+
+        </div>
+
+    </div>
+
+    <div class="floating-hearts">
+        <span>♥</span>
+        <span>♥</span>
+        <span>♥</span>
+        <span>♥</span>
+        <span>♥</span>
+        <span>♥</span>
+        <span>♥</span>
+        <span>♥</span>
+    </div>
+
+    <div class="moon-title">
+        Selamat Ulang Tahun ✨
+    </div>
+
+    <div class="moon-message">
+        Untuk Adikku yang Cantik ❤️
+    </div>
+
+    <div class="moon-submessage">
+        Semoga setiap langkahmu selalu ditemani kebahagiaan ✨
+    </div>
+
+</div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script
+        src="script.js">
+    </script>
+
+</body>
+</html>

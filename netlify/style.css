@@ -1,0 +1,1467 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #3b0018;
+    color: #fff;
+}
+
+/* =========================
+   PIN
+========================= */
+
+.page {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(circle at top, #6d1235, #26000f 70%);
+
+    z-index: 1000;
+}
+
+.login-box {
+    width: min(90%, 380px);
+    padding: 40px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 180, 200, 0.25);
+    border-radius: 25px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+    animation: muncul 1s ease;
+}
+
+.lock {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.login-box h1 {
+    color: #ff9fba;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.login-box p {
+    color: #f5dce4;
+    margin-bottom: 22px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 16px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 15px;
+
+    background: #fff;
+    color: #4a1025;
+
+    font-size: 18px;
+    text-align: center;
+
+    margin-bottom: 15px;
+}
+
+button {
+    border: none;
+    outline: none;
+
+    padding: 14px 28px;
+
+    border-radius: 30px;
+
+    background: #ed4678;
+    color: white;
+
+    font-size: 16px;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(237, 70, 120, 0.35);
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #ff5c8d;
+}
+
+.error {
+    color: #ff9aaa !important;
+    min-height: 20px;
+    margin-top: 10px;
+}
+
+/* =========================
+   HALAMAN ULANG TAHUN
+========================= */
+
+.birthday-page {
+    display: none;
+
+    width: 100%;
+    height: 100vh;
+
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at top, #650d30, #300014 75%);
+}
+
+/* setiap section menjadi SATU SLIDE */
+
+.birthday-section {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    padding: 35px 20px 90px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateX(100%);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        visibility 0.7s;
+}
+
+.birthday-section.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.birthday-section.previous {
+    transform: translateX(-100%);
+}
+
+.small-text {
+    color: #efa0b5;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.birthday-section h1 {
+    color: #ff7fa3;
+    font-size: clamp(35px, 8vw, 65px);
+    margin-bottom: 20px;
+}
+
+.birthday-section h2 {
+    color: #ffc0d0;
+    font-size: clamp(32px, 7vw, 58px);
+    margin-bottom: 20px;
+}
+
+.intro {
+    width: min(90%, 600px);
+
+    color: #f0d6de;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+    font-size: 17px;
+}
+
+/* =========================
+   KUE
+========================= */
+
+.big-cake {
+    font-size: 120px;
+    margin: 20px 0 30px;
+
+    animation: melayang 2s infinite ease-in-out;
+}
+
+.wish-text {
+    min-height: 30px;
+    color: #ffb1c5;
+    margin: 20px 0;
+}
+
+/* =========================
+   SURAT
+========================= */
+
+.letter {
+    width: min(90%, 650px);
+    max-height: 65vh;
+
+    overflow-y: auto;
+
+    background: #fff8f1;
+    color: #51323b;
+
+    padding: 35px 30px;
+
+    border-radius: 8px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+    text-align: left;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+
+    transform: rotate(-1deg);
+}
+
+.letter h2 {
+    color: #a74b65;
+    text-align: center;
+    font-size: 32px;
+}
+
+.letter p {
+    margin-bottom: 15px;
+}
+
+.signature {
+    text-align: right;
+    color: #b04b67;
+    font-style: italic;
+}
+
+/* =========================
+   FOTO
+========================= */
+
+.memory-grid {
+    width: 100%;
+
+    display: flex;
+
+    gap: 15px;
+
+    justify-content: center;
+    align-items: center;
+
+    margin: 15px 0 25px;
+}
+
+.photo-card {
+    width: min(29vw, 220px);
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 180, 200, 0.2);
+
+    border-radius: 18px;
+
+    padding: 10px;
+
+    transition: 0.3s;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 270px;
+
+    object-fit: contain;
+
+    background: #22000d;
+
+    border-radius: 12px;
+
+    display: block;
+}
+
+.photo-card p {
+    color: #f5c8d3;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.photo-card:hover {
+    transform: translateY(-8px);
+}
+
+/* =========================
+   ALASAN
+========================= */
+
+.reasons {
+    width: min(90%, 600px);
+    margin: 10px 0 20px;
+}
+
+.reason {
+    padding: 16px 20px;
+
+    margin: 12px 0;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-left: 3px solid #e45c7d;
+
+    border-radius: 12px;
+
+    color: #f3dce2;
+
+    text-align: left;
+
+    transition: 0.3s;
+}
+
+.reason:hover {
+    transform: translateX(8px);
+}
+
+/* =========================
+   PENUTUP
+========================= */
+
+.final-heart {
+    font-size: 80px;
+
+    animation: detak 1.2s infinite;
+}
+
+.final-text {
+    width: min(90%, 600px);
+
+    color: #ead5db;
+
+    line-height: 1.9;
+
+    margin: 15px 0;
+}
+
+.final-cake {
+    font-size: 70px;
+    margin: 25px 0;
+}
+
+.final-section h3 {
+    color: #ff9eb8;
+    font-size: 25px;
+}
+
+/* =========================
+   MUSIK
+========================= */
+
+#musicButton {
+    position: fixed;
+
+    right: 18px;
+    bottom: 18px;
+
+    z-index: 2000;
+
+    padding: 12px 18px;
+
+    font-size: 14px;
+}
+
+/* =========================
+   ANIMASI
+========================= */
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes melayang {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes detak {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* =========================
+   HP
+========================= */
+
+@media (max-width: 600px) {
+
+    .birthday-section {
+        padding: 25px 15px 80px;
+    }
+
+    .birthday-section h2 {
+        font-size: 38px;
+    }
+
+    .birthday-section h1 {
+        font-size: 42px;
+    }
+
+    .intro {
+        font-size: 15px;
+    }
+
+    .memory-grid {
+        gap: 8px;
+    }
+
+    .photo-card {
+        width: 30vw;
+        padding: 5px;
+    }
+
+    .photo-card img {
+        height: 210px;
+    }
+
+    .photo-card p {
+        font-size: 11px;
+    }
+
+    .letter {
+        max-height: 60vh;
+        padding: 25px 20px;
+        font-size: 14px;
+    }
+}
+/* =========================
+   POP UP FOTO
+========================= */
+
+.photo-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(120, 0, 45, 0.35),
+            rgba(0, 0, 0, 0.94)
+        );
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.photo-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.photo-modal img {
+    max-width: 88vw;
+    max-height: 78vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+
+    border: 4px solid rgba(255, 255, 255, 0.85);
+
+    box-shadow:
+        0 0 0 8px rgba(255, 255, 255, 0.08),
+        0 0 35px rgba(255, 150, 200, 0.35),
+        0 20px 80px rgba(0, 0, 0, 0.7);
+
+    transform: scale(0.65) rotate(-3deg);
+
+    transition:
+        transform 0.45s cubic-bezier(.17,.67,.35,1.35);
+}
+
+.photo-modal.show img {
+    transform: scale(1) rotate(0deg);
+}
+
+
+/* Tombol X */
+
+.photo-modal-close {
+    position: absolute;
+
+    top: 22px;
+    right: 22px;
+
+    width: 48px;
+    height: 48px;
+
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 50%;
+
+    background: rgba(120, 0, 45, 0.75);
+
+    color: white;
+
+    font-size: 23px;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+}
+
+.photo-modal-close:hover {
+    transform: rotate(90deg) scale(1.1);
+    background: rgba(180, 20, 80, 0.9);
+}
+
+
+/* =========================================
+   SPARKLE POPUP
+========================================= */
+
+.popup-sparkle {
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 100000;
+
+    font-size: 18px;
+
+    animation:
+        popupSparkle .9s ease-out forwards;
+}
+
+@keyframes popupSparkle {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(.2)
+            rotate(0deg);
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.3)
+            rotate(180deg);
+    }
+}
+
+
+/* =========================================
+   NAVIGASI FOTO
+========================================= */
+
+.photo-nav {
+    position: absolute;
+
+    bottom: 25px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 12px;
+}
+
+.photo-nav button {
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.16);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(5px);
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.photo-nav button:hover {
+    transform: scale(1.12);
+    background: rgba(255,255,255,.3);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .photo-modal {
+        padding: 12px;
+    }
+
+    .photo-modal img {
+        max-width: 94vw;
+        max-height: 72vh;
+        border-radius: 14px;
+    }
+
+    .photo-modal-close {
+        top: 14px;
+        right: 14px;
+
+        width: 42px;
+        height: 42px;
+    }
+}
+
+/* =========================
+   PARTIKEL LEDAK
+========================= */
+
+.click-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    font-size: 18px;
+    transform: translate(-50%, -50%);
+    animation: particleExplosion 0.8s ease-out forwards;
+}
+
+@keyframes particleExplosion {
+    0% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            translate(0, 0)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            translate(var(--tx), var(--ty))
+            scale(0.2);
+    }
+}
+
+/* =========================================
+   EFEK SALJU ESTETIK - BIRTHDAY
+========================================= */
+
+.snow-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+/* Satu kepingan salju */
+.snowflake {
+    position: absolute;
+    top: -40px;
+    left: 0;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+
+    user-select: none;
+    pointer-events: none;
+
+    text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.7),
+        0 0 10px rgba(255, 255, 255, 0.35);
+
+    animation:
+        elegantSnowfall linear infinite;
+
+    will-change: transform;
+}
+
+/* Gerakan turun + sedikit efek angin */
+@keyframes elegantSnowfall {
+
+    0% {
+        transform:
+            translate3d(0, -40px, 0)
+            rotate(0deg);
+    }
+
+    25% {
+        transform:
+            translate3d(25px, 25vh, 0)
+            rotate(90deg);
+    }
+
+    50% {
+        transform:
+            translate3d(-20px, 50vh, 0)
+            rotate(180deg);
+    }
+
+    75% {
+        transform:
+            translate3d(30px, 75vh, 0)
+            rotate(270deg);
+    }
+
+    100% {
+        transform:
+            translate3d(-15px, 110vh, 0)
+            rotate(360deg);
+    }
+}
+
+/* Bokeh salju yang sangat lembut */
+.snow-glow {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        0 0 6px rgba(255, 255, 255, 0.8),
+        0 0 14px rgba(255, 255, 255, 0.35);
+
+    animation:
+        softSnowGlow linear infinite;
+
+    pointer-events: none;
+}
+
+@keyframes softSnowGlow {
+
+    0% {
+        transform:
+            translate3d(0, -20px, 0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.65;
+    }
+
+    50% {
+        transform:
+            translate3d(20px, 50vh, 0);
+        opacity: 0.45;
+    }
+
+    85% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform:
+            translate3d(-20px, 110vh, 0);
+        opacity: 0;
+    }
+}
+
+/* HP */
+@media (max-width: 600px) {
+
+    .snowflake {
+        text-shadow:
+            0 0 4px rgba(255, 255, 255, 0.6);
+    }
+
+    .snow-glow {
+        width: 4px;
+        height: 4px;
+    }
+}
+
+/* =========================================
+   🌕 BULAN REALISTIS
+========================================= */
+
+.final-section {
+    overflow: hidden;
+}
+
+.moon-scene {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            rgba(255, 120, 170, 0.10),
+            transparent 32%
+        ),
+        linear-gradient(
+            180deg,
+            #21000f 0%,
+            #350018 55%,
+            #19000b 100%
+        );
+}
+
+
+/* =========================================
+   🌕 BULAN
+========================================= */
+
+.final-section .moon-orbit {
+
+    position: absolute;
+
+    left: 50%;
+    top: 42%;
+
+    width: 290px;
+    height: 290px;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 20;
+
+    animation:
+        moonAppear 1.8s ease-out forwards,
+        moonFloat 5s ease-in-out 1.8s infinite;
+}
+
+
+/* BULAN UTAMA */
+
+.final-section .realistic-moon {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background:
+
+        /* kawah besar */
+        radial-gradient(
+            circle at 72% 54%,
+            #858585 0 7%,
+            transparent 7.8%
+        ),
+
+        radial-gradient(
+            circle at 55% 76%,
+            #888 0 7%,
+            transparent 7.8%
+        ),
+
+        radial-gradient(
+            circle at 31% 66%,
+            #929292 0 6%,
+            transparent 6.8%
+        ),
+
+        radial-gradient(
+            circle at 43% 42%,
+            #858585 0 7%,
+            transparent 7.8%
+        ),
+
+        radial-gradient(
+            circle at 68% 27%,
+            #8a8a8a 0 5%,
+            transparent 5.8%
+        ),
+
+        radial-gradient(
+            circle at 25% 27%,
+            #8f8f8f 0 5%,
+            transparent 5.8%
+        ),
+
+        radial-gradient(
+            circle at 82% 76%,
+            #818181 0 5%,
+            transparent 5.8%
+        ),
+
+        radial-gradient(
+            circle at 34% 50%,
+            #909090 0 4%,
+            transparent 4.8%
+        ),
+
+        radial-gradient(
+            circle at 60% 22%,
+            #999 0 4%,
+            transparent 4.8%
+        ),
+
+        /* permukaan bulan */
+        radial-gradient(
+            circle at 40% 35%,
+            #eeeeee 0%,
+            #d8d8d8 35%,
+            #bdbdbd 65%,
+            #8d8d8d 100%
+        );
+
+    box-shadow:
+
+        /* glow luar */
+        0 0 12px rgba(255,255,255,.75),
+        0 0 30px rgba(255,160,200,.65),
+        0 0 65px rgba(255,100,160,.35),
+
+        /* bayangan 3D */
+        inset -38px -30px 55px rgba(0,0,0,.55),
+        inset 18px 12px 30px rgba(255,255,255,.45);
+
+    animation: moonLight 5s ease-in-out infinite;
+}
+
+
+/* =========================================
+   🌑 BAYANGAN 3D
+========================================= */
+
+.final-section .realistic-moon::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse at 30% 25%,
+            rgba(255,255,255,.35),
+            transparent 40%
+        ),
+        linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(0,0,0,.05) 48%,
+            rgba(0,0,0,.38) 78%,
+            rgba(0,0,0,.65) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   ✨ BULAN MUNCUL
+========================================= */
+
+@keyframes moonAppear {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(.45);
+
+        filter: blur(8px);
+    }
+
+    60% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.05);
+
+        filter: blur(1px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+
+/* =========================================
+   🌕 BULAN BERGERAK PELAN
+========================================= */
+
+@keyframes moonFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            translateY(-8px);
+    }
+}
+
+
+/* =========================================
+   💡 CAHAYA BULAN
+========================================= */
+
+@keyframes moonLight {
+
+    0%,
+    100% {
+        filter:
+            brightness(.98)
+            contrast(1.05);
+    }
+
+    50% {
+        filter:
+            brightness(1.08)
+            contrast(1.08);
+    }
+}
+
+
+/* =========================================
+   ✨ BINTANG
+========================================= */
+
+.final-section .moon-stars {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+}
+
+.final-section .moon-stars span {
+
+    position: absolute;
+
+    color: white;
+
+    font-size: 17px;
+
+    text-shadow:
+        0 0 6px white,
+        0 0 12px rgba(255,255,255,.6);
+
+    animation:
+        starTwinkle 2.5s ease-in-out infinite;
+}
+
+
+/* posisi bintang */
+
+.final-section .moon-stars span:nth-child(1) {
+    left: 8%;
+    top: 20%;
+}
+
+.final-section .moon-stars span:nth-child(2) {
+    left: 25%;
+    top: 13%;
+}
+
+.final-section .moon-stars span:nth-child(3) {
+    left: 40%;
+    top: 20%;
+}
+
+.final-section .moon-stars span:nth-child(4) {
+    left: 70%;
+    top: 13%;
+}
+
+.final-section .moon-stars span:nth-child(5) {
+    left: 88%;
+    top: 25%;
+}
+
+.final-section .moon-stars span:nth-child(6) {
+    left: 10%;
+    top: 45%;
+}
+
+.final-section .moon-stars span:nth-child(7) {
+    left: 92%;
+    top: 48%;
+}
+
+.final-section .moon-stars span:nth-child(8) {
+    left: 15%;
+    top: 72%;
+}
+
+.final-section .moon-stars span:nth-child(9) {
+    left: 30%;
+    top: 82%;
+}
+
+.final-section .moon-stars span:nth-child(10) {
+    left: 78%;
+    top: 78%;
+}
+
+.final-section .moon-stars span:nth-child(11) {
+    left: 91%;
+    top: 68%;
+}
+
+.final-section .moon-stars span:nth-child(12) {
+    left: 60%;
+    top: 10%;
+}
+
+.final-section .moon-stars span:nth-child(13) {
+    left: 5%;
+    top: 30%;
+}
+
+.final-section .moon-stars span:nth-child(14) {
+    left: 82%;
+    top: 55%;
+}
+
+.final-section .moon-stars span:nth-child(15) {
+    left: 48%;
+    top: 90%;
+}
+
+
+/* =========================================
+   ❤️ HATI
+========================================= */
+
+.final-section .floating-hearts {
+    position: absolute;
+    inset: 0;
+    z-index: 15;
+}
+
+.final-section .floating-hearts span {
+
+    position: absolute;
+
+    color: #ff4f88;
+
+    font-size: 18px;
+
+    text-shadow:
+        0 0 8px rgba(255,80,140,.6);
+
+    animation:
+        heartFly 4s ease-in-out infinite;
+}
+
+
+/* posisi hati */
+
+.final-section .floating-hearts span:nth-child(1) {
+    left: 18%;
+    top: 60%;
+}
+
+.final-section .floating-hearts span:nth-child(2) {
+    left: 28%;
+    top: 75%;
+}
+
+.final-section .floating-hearts span:nth-child(3) {
+    left: 75%;
+    top: 60%;
+}
+
+.final-section .floating-hearts span:nth-child(4) {
+    left: 85%;
+    top: 72%;
+}
+
+.final-section .floating-hearts span:nth-child(5) {
+    left: 12%;
+    top: 52%;
+}
+
+.final-section .floating-hearts span:nth-child(6) {
+    left: 88%;
+    top: 42%;
+}
+
+.final-section .floating-hearts span:nth-child(7) {
+    left: 35%;
+    top: 18%;
+}
+
+.final-section .floating-hearts span:nth-child(8) {
+    left: 68%;
+    top: 20%;
+}
+
+
+/* =========================================
+   ✨ BINTANG BERKEDIP
+========================================= */
+
+@keyframes starTwinkle {
+
+    0%,
+    100% {
+        opacity: .3;
+        transform: scale(.75);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.35);
+    }
+}
+
+
+/* =========================================
+   ❤️ HATI MELAYANG
+========================================= */
+
+@keyframes heartFly {
+
+    0%,
+    100% {
+        opacity: .35;
+        transform:
+            translateY(0)
+            scale(.85);
+    }
+
+    50% {
+        opacity: 1;
+        transform:
+            translateY(-25px)
+            scale(1.1);
+    }
+}
+
+
+/* =========================================
+   📝 TEKS
+========================================= */
+
+.final-section .moon-title,
+.final-section .moon-message,
+.final-section .moon-submessage {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    z-index: 100;
+
+    opacity: 0;
+}
+
+
+.final-section .moon-title {
+
+    top: 68%;
+
+    color: white;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.6);
+
+    animation:
+        textAppear 1.5s ease 1s forwards;
+}
+
+
+.final-section .moon-message {
+
+    top: 76%;
+
+    color: #ff9fbd;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.5);
+
+    animation:
+        textAppear 1.5s ease 1.5s forwards;
+}
+
+
+.final-section .moon-submessage {
+
+    top: 83%;
+
+    color: white;
+
+    font-size: 15px;
+
+    animation:
+        textAppear 1.5s ease 2s forwards;
+}
+
+
+@keyframes textAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translate(-50%, 20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translate(-50%, 0);
+    }
+}
+
+
+/* =========================================
+   📱 HP
+========================================= */
+
+@media (max-width: 600px) {
+
+    .final-section .moon-orbit {
+
+        width: 210px;
+        height: 210px;
+
+        top: 39%;
+    }
+
+    .final-section .moon-title {
+
+        top: 66%;
+
+        font-size: 25px;
+    }
+
+    .final-section .moon-message {
+
+        top: 75%;
+
+        font-size: 19px;
+    }
+
+    .final-section .moon-submessage {
+
+        top: 83%;
+
+        font-size: 13px;
+    }
+}
